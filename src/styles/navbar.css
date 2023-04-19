@@ -1,5 +1,20 @@
-.nav{
-    display: flex;
-    justify-content: center;
-    background-color: black;
+.nav {
+  display: flex;
+  align-items: center;
+  background-color: black;
+}
+.nav-aux {
+  flex: 3;
+}
+.nav-logo {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-dropDown {
+  flex: 3;
+  display: flex;
+  justify-content: end;
+  margin-right: 20px;
 }

@@ -28,7 +28,7 @@ const Species = () => {
       <div className="card-view">
         {species.map((itm, ind) => (
           <div key={ind} className="card-container">
-            <Link to={`single/${itm.uid}`} className="">
+            <Link to={`spec-single/${itm.uid}`} className="">
               <div className="card-container-img">
                 <img className="card-imagen" src={`${imgUrl}${itm.uid}.jpg`} alt="" />
               </div>

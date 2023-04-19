@@ -6,10 +6,10 @@ import Species from "./Species";
 
 export const Home = () => {
   return (
-    <div>
-      <h3>Characters</h3>
+    <div >
+      <p className="text">Characters</p>
       <Characters />
-      <h3>Species</h3>
+      <p className="text">Species</p>
       <Species />
     </div>
   );

@@ -29,7 +29,7 @@ const Characters = () => {
       <div className="card-view">
         {people.map((itm, ind) => (
           <div key={ind} className="card-container">
-            <Link to={`char-single/${itm.uid}`} className="">
+            <Link to={`char-single/${itm.uid}`} className="card-link">
               <div className="card-container-img">
                 <img
                   className="card-imagen"
@@ -39,7 +39,7 @@ const Characters = () => {
                 <span class="icono"><MdFavorite /></span>
               </div>
               <span className="card-text">
-                <h5>{itm.name}</h5>
+                <p style={{margin:'0'}}>{itm.name}</p>
                 
               </span>
             </Link>

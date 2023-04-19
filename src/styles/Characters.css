@@ -12,8 +12,8 @@
   width: 200px;
   height: 240px;
   color: #ffe81f;
-  margin: 5px;
-  box-shadow: 0 0 8px #ffe81f;
+  margin: 0 5px;
+  /* box-shadow: 0 0 8px #ffe81f; */
 }
 
 .card-container-img {
@@ -27,6 +27,11 @@
   width: 100%;
 }
 
+.card-link {
+  text-decoration: none;
+  color: #fff;
+}
+
 .card-text {
   height: 40px;
   display: flex;
@@ -38,4 +43,5 @@
   top: -5px;
   right: 0;
   font-size: 30px;
+  opacity: 50%;
 }
