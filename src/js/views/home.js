@@ -8,8 +8,7 @@ export const Home = () => {
   return (
     <div >
       <Characters />
-      <p className="text">Species</p>
-      <Species />
+      {/* <Species /> */}
     </div>
   );
 };

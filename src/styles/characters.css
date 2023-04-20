@@ -1,12 +1,8 @@
-/* .scroll-container {
-  overflow-x: auto;
-} */
 
 .card-view {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* margin: 5px; */
 }
 
 .card-container {

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/characters.css";
 import { MdFavorite } from "react-icons/md";
@@ -10,36 +11,52 @@ const Characters = () => {
   const [people, setPeople] = useState([]);
   const [totalPages, setTotalPages] = useState([]);
   const [currentPage, setCurrentPage] = useState("?page=1&limit=10");
+  const { store, actions } = useContext(Context);
 
-  // var requestOptions = {
-  //   method: "GET",
-  //   redirect: "follow",
   const getAllelements = async () => {
-    const response = await fetch(urlApiPeople + currentPage);
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow"
+    };
+    const response = await fetch(urlApiPeople + currentPage, requestOptions);
     const data = await response.json();
     setPeople(data.results);
     setTotalPages([...Array(data.total_pages)]);
-    // console.log(data.next,'lol:', data.total_pages);
   };
 
   useEffect(() => {
     getAllelements();
   }, [currentPage]);
 
-  const handleFavorites = (e) => {
-    e.preventDefault();
-    console.log("click favoritos");
-  };
+/*   const addAllelements = async () => {
+    var requestOptions = {
+      method: "POST",
+      redirect: "follow"
+    };
+    const response = await fetch(urlApiPeople + currentPage, requestOptions);
+    const data = await response.json();
+    setPeople(data.results);
+    setTotalPages([...Array(data.total_pages)]);
+  }
+  addAllelements() */
+
 
   const handleButtonPage = (page) => {
     console.log("page:", page);
     setCurrentPage(`?page=${page}&limit=10`);
   };
 
+  const handleAddFavorites = (e, id, name) => {
+    e.preventDefault();
+    actions.addCharacter(id, name);
+  };
+
   return (
-    <div className="">
+    <div className="scroll-container">
       <div className="button-container">
-        <span className="button-50" style={{cursor:'default'}}>CHARACTERS</span>
+        <span className="button-50" style={{ cursor: "default" }}>
+          CHARACTERS
+        </span>
         {totalPages.map((_, ind) => (
           <button
             className="button-50"
@@ -63,7 +80,9 @@ const Characters = () => {
                   alt="Char Img"
                 />
                 <span className="card-icon">
-                  <MdFavorite onClick={(e) => handleFavorites(e)} />
+                  <MdFavorite
+                    onClick={(e) => handleAddFavorites(e, itm.uid, itm.name)}
+                  />
                 </span>
               </div>
               <span className="card-text">

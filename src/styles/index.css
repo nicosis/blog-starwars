@@ -1,3 +1,31 @@
 /* 
     General Styles
 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body,
+  html {
+    /* font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; */
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+  }
+  
+  body {
+    background-color: black;
+    color: #ffe81f;
+    background-image: url("https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-25_bc15ec98.jpeg");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .text {
+    margin-left: 20px;
+    margin-bottom: 0;
+    font-size: 30px;
+    font-weight: 300;
+  }

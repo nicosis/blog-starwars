@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+
 import logo from "../../img/star-wars-logo-980.png";
 import "../../styles/navbar.css";
+import Favorites from "../views/favorites";
 
 export const Navbar = () => {
+  const { store, actions } = useContext(Context);
+/*   const [characters1, setChacters1] = useState(store.characters); //no guarda la info
+  console.log('char nav:', characters1); */
   return (
     <nav className="nav">
-      <div className="nav-aux"></div>
+      <div className="nav-aux">
+        <Favorites />
+      </div>
       <div className="nav-logo">
         <Link to="/">
           <img src={logo} alt="Logo Star Wars" style={{ height: "80px" }} />
@@ -25,24 +33,13 @@ export const Navbar = () => {
             Favorites
           </a>
           <ul className="dropdown-menu">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
+            {store.characters.map((itm, ind) => (
+              <li key={ind}>
+                <a className="dropdown-item" href="#">
+                  {itm.name}
+                </a>
+              </li>
+            ))}
           </ul>
         </li>
       </div>

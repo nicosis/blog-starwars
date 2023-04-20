@@ -1,42 +1,20 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			characters: [] //agrero una propiedad donde voy a almacenar los characters favoritos
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+			addCharacter(id, name) {
+				// recuperar la amacen global
+				const store = getStore()
+				// crear nuevo caracter y añadirlo a la propiedad creada arriba
+				const newCharacter = [...store.characters, {id, name}] //consola js
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+				console.log('actualizo character :', newCharacter);
 
-				//reset the global store
-				setStore({ demo: demo });
+				//actualiza la variable del store
+				setStore({characters: newCharacter})  //jsx
+
 			}
 		}
 	};
