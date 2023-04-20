@@ -8,8 +8,8 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import CharactersSingle from './views/CharactersSingle'
-import SpeciesSingle from "./views/SpeciesSingle";
+import CharactersSingle from './views/charactersSingle'
+import SpeciesSingle from "./views/speciesSingle";
 
 //create your first component
 const Layout = () => {

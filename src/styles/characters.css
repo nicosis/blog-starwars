@@ -3,8 +3,10 @@
 }
 
 .card-view {
-  display: inline-flex;
-  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* margin: 5px; */
 }
 
 .card-container {
@@ -12,8 +14,11 @@
   width: 200px;
   height: 240px;
   color: #ffe81f;
-  margin: 0 5px;
-  /* box-shadow: 0 0 8px #ffe81f; */
+  margin: 5px 5px;
+}
+
+.card-container:hover {
+  box-shadow: 0 0 10px #ffe81f;
 }
 
 .card-container-img {
@@ -38,10 +43,21 @@
   justify-content: center;
   align-items: center;
 }
-.icono {
+.card-icon {
   position: absolute;
   top: -5px;
   right: 0;
   font-size: 30px;
   opacity: 50%;
+}
+
+.button-container {
+display: flex;
+justify-content: center;
+margin: 5px;
+}
+
+.button-container button {
+  margin: 3px;
+  width: 30px;
 }

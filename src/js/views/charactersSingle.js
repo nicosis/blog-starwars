@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import "../../styles/CharactersSingle.css";
-const apiUrl = "https://www.swapi.tech/api/species/";
-const imgUrl = "https://starwars-visualguide.com/assets/img/species/";
+import "../../styles/charactersSingle.css";
+const apiUrl = "https://www.swapi.tech/api/people/";
+const imgUrl = "https://starwars-visualguide.com/assets/img/characters/";
 
-const SpeciesSingle = () => {
+const CharacterSingle = () => {
   const [single, setSingle] = useState([]);
   const params = useParams();
 
@@ -35,9 +35,14 @@ const SpeciesSingle = () => {
           alt="..."
         />
         <span className="single-card-info">
-          <h1 className="">Specie: {single.name && single.name.toUpperCase()}</h1>
-          <h3 className="">Classification: {single.classification}</h3>
-
+          <h1 className="">Name: {single.name}</h1>
+          <h3 className="">Birth Year: {single.birth_year}</h3>
+          <h3 className="">Height: {single.height} cm</h3>
+          <h3 className="">Mass: {single.mass} kg</h3>
+          <h3 className="">Gender: {single.gender && single.gender.toUpperCase()}</h3>
+          <h3 className="">Hair Color: {single.hair_color && single.hair_color.toUpperCase()}</h3>
+          <h3 className="">Skin Color: {single.skin_color && single.skin_color.toUpperCase}</h3>
+          <h3 className="">Eye Color: {single.eye_color && single.eye_color.toUpperCase}</h3>
           <Link to="/">
           <button className="button-4" role="button">Back</button>
           </Link>
@@ -47,4 +52,4 @@ const SpeciesSingle = () => {
   );
 };
 
-export default SpeciesSingle;
+export default CharacterSingle;

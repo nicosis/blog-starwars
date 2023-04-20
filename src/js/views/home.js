@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import '../../styles/home.css'
 
-import Characters from "./Characters";
-import Species from "./Species";
+import Characters from "./characters";
+import Species from "./species";
 
 export const Home = () => {
   return (

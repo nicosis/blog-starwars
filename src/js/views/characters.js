@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../../styles/Characters.css";
+import "../../styles/characters.css";
 import { MdFavorite } from "react-icons/md";
 
 const apiUrl = "https://www.swapi.tech/api/people/";
@@ -24,8 +24,13 @@ const Characters = () => {
       .catch((error) => console.log("error", error));
   };
 
+const handleFavorites = (e) => {
+  e.preventDefault();
+  console.log('click favoritos');
+}
+
   return (
-    <div className="scroll-container">
+    <div className="scroll-container00">
       <div className="card-view">
         {people.map((itm, ind) => (
           <div key={ind} className="card-container">
@@ -36,7 +41,7 @@ const Characters = () => {
                   src={`${imgUrl}${itm.uid}.jpg`}
                   alt="Char Img"
                 />
-                <span class="icono"><MdFavorite /></span>
+                <span className="card-icon"><MdFavorite onClick={(e)=>handleFavorites(e)} /></span>
               </div>
               <span className="card-text">
                 <p style={{margin:'0'}}>{itm.name}</p>
@@ -46,6 +51,10 @@ const Characters = () => {
           </div>
         ))}
       </div>
+        <div className="button-container">
+          <button>1</button>
+          <button>2</button>
+        </div>
     </div>
   );
 };

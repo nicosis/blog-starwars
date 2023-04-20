@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../../styles/Characters.css";
+import "../../styles/characters.css";
 
 const apiUrl = "https://www.swapi.tech/api/species/";
 const imgUrl = "https://starwars-visualguide.com/assets/img/species/";
