@@ -1,3 +1,8 @@
+.scroll-container {
+max-width: 1100px;
+margin: auto;
+}
+
 
 .card-view {
   display: flex;
