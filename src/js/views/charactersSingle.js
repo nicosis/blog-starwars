@@ -20,7 +20,7 @@ const CharacterSingle = () => {
     fetch(apiUrl + params.id, requestOptions)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.result.properties);
+        // console.log(data.result.properties);
         setSingle(data.result.properties);
       })
       .catch((error) => console.log("error", error));
@@ -44,7 +44,8 @@ const CharacterSingle = () => {
           <h3 className="">Skin Color: {single.skin_color && single.skin_color.toUpperCase}</h3>
           <h3 className="">Eye Color: {single.eye_color && single.eye_color.toUpperCase}</h3>
           <Link to="/">
-          <button className="button-4" role="button">Back</button>
+          <button class="button-50" role="button">Back</button>
+
           </Link>
         </span>
       </div>
