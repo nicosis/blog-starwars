@@ -8,10 +8,6 @@ const CharacterSingle = () => {
   const [single, setSingle] = useState([]);
   const params = useParams();
 
-  useEffect(() => {
-    getAllelements();
-  }, []);
-
   const getAllelements = () => {
     var requestOptions = {
       method: "GET",
@@ -24,6 +20,10 @@ const CharacterSingle = () => {
       })
       .catch((error) => console.log("error", error));
   };
+
+  useEffect(() => {
+    getAllelements();
+  }, []);
 
   return (
     <div className="single-container">

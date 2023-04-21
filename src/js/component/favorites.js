@@ -26,7 +26,7 @@ const Favorites = () => {
           >
             Favorites ({store.characters.length})
           </button>
-          <ul className="dropdown-menu">
+          <ul className="dropdown-menu rounded-0">
             {store.characters.map((itm, ind) => (
               <li key={ind}>
                 <span className="dropdown-item d-flex justify-content-between">

@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/characters.css";
-import { MdFavorite } from "react-icons/md";
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
+
 
 const urlApiPeople = "https://www.swapi.tech/api/people";
 const imgUrl = "https://starwars-visualguide.com/assets/img/characters/";
@@ -11,12 +12,13 @@ const Characters = () => {
   const [people, setPeople] = useState([]);
   const [totalPages, setTotalPages] = useState([]);
   const [currentPage, setCurrentPage] = useState("?page=1&limit=10");
+  const [isFavorite, setIsFavorite] = useState(false);
   const { store, actions } = useContext(Context);
 
   const getAllelements = async () => {
     var requestOptions = {
       method: "GET",
-      redirect: "follow"
+      redirect: "follow",
     };
     const response = await fetch(urlApiPeople + currentPage, requestOptions);
     const data = await response.json();
@@ -27,19 +29,6 @@ const Characters = () => {
   useEffect(() => {
     getAllelements();
   }, [currentPage]);
-
-/*   const addAllelements = async () => {
-    var requestOptions = {
-      method: "POST",
-      redirect: "follow"
-    };
-    const response = await fetch(urlApiPeople + currentPage, requestOptions);
-    const data = await response.json();
-    setPeople(data.results);
-    setTotalPages([...Array(data.total_pages)]);
-  }
-  addAllelements() */
-
 
   const handleButtonPage = (page) => {
     console.log("page:", page);
@@ -79,8 +68,8 @@ const Characters = () => {
                   src={`${imgUrl}${itm.uid}.jpg`}
                   alt="Char Img"
                 />
-                <span className="card-icon">
-                  <MdFavorite
+                <span className="card-favIcon">
+                  <MdFavoriteBorder
                     onClick={(e) => handleAddFav(e, itm.uid, itm.name)}
                   />
                 </span>
