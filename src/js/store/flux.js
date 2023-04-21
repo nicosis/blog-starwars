@@ -4,12 +4,12 @@ const getState = ({ getStore, getActions, setStore }) => {
       characters: [], //agrero una propiedad donde voy a almacenar los characters favoritos
     },
     actions: {
-      addCharacter(uid, name, favorite) {
+      addCharacter: (uid, name) => {
         // recuperar la amacen global
         const store = getStore();
         // crear nuevo caracter y añadirlo a la propiedad creada arriba
-        const newCharacter = [...store.characters, { uid, name, favorite }]; //consola js
-        console.log(newCharacter);
+        const newCharacter = [...store.characters, { uid, name }]; //consola js
+        console.log("add character:", newCharacter);
         //actualiza la variable del store
         setStore({ characters: newCharacter }); //jsx
       },
@@ -20,6 +20,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         );
         setStore({ characters: updatedCharacter });
       },
+      // addRemoveFavorites() {
+      //   hacer condicional integrango add y remove
+      // },
     },
   };
 };

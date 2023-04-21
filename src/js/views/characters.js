@@ -12,7 +12,6 @@ const Characters = () => {
   const [people, setPeople] = useState([]);
   const [totalPages, setTotalPages] = useState([]);
   const [currentPage, setCurrentPage] = useState("?page=1&limit=10");
-  const [isFavorite, setIsFavorite] = useState(false);
   const { store, actions } = useContext(Context);
 
   const getAllelements = async () => {
