@@ -46,13 +46,13 @@ const Characters = () => {
     setCurrentPage(`?page=${page}&limit=10`);
   };
 
-  const handleAddFavorites = (e, id, name) => {
+  const handleAddFav = (e, uid, name) => {
     e.preventDefault();
-    actions.addCharacter(id, name);
+    actions.addCharacter(uid, name);
   };
 
   return (
-    <div className="scroll-container">
+    <div className="character-container">
       <div className="button-container">
         <span className="button-50" style={{ cursor: "default" }}>
           CHARACTERS
@@ -69,7 +69,7 @@ const Characters = () => {
           </button>
         ))}
       </div>
-      <div className="card-view">
+      <div className="cards-view">
         {people.map((itm, ind) => (
           <div key={ind} className="card-container">
             <Link to={`char-single/${itm.uid}`} className="card-link">
@@ -81,7 +81,7 @@ const Characters = () => {
                 />
                 <span className="card-icon">
                   <MdFavorite
-                    onClick={(e) => handleAddFavorites(e, itm.uid, itm.name)}
+                    onClick={(e) => handleAddFav(e, itm.uid, itm.name)}
                   />
                 </span>
               </div>

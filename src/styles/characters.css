@@ -1,10 +1,10 @@
-.scroll-container {
-max-width: 1100px;
-margin: auto;
+.character-container {
+  max-width: 1100px;
+  margin: auto;
 }
 
 
-.card-view {
+.cards-view {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -48,7 +48,7 @@ margin: auto;
 .card-icon {
   position: absolute;
   top: -5px;
-  right: 0;
+  right: 5px;
   font-size: 30px;
   opacity: 50%;
 }
@@ -66,9 +66,9 @@ margin: auto;
 /* CSS */
 .button-50 {
   appearance: button;
-  background-color: #000;
+  background-color: #121212;
   /* background-image: none; */
-  border: 1px solid #121212;
+  border: 1px solid #000;
   /* border-radius: 4px; */
   box-shadow: #fff 4px 4px 0 0, #000 4px 4px 0 1px;
   /* box-sizing: border-box; */

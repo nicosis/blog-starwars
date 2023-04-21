@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import "../../styles/charactersSingle.css";
 const apiUrl = "https://www.swapi.tech/api/people/";
 const imgUrl = "https://starwars-visualguide.com/assets/img/characters/";
-import iconStar from "../../img/jedi-solid.svg";
 
 const CharacterSingle = () => {
   const [single, setSingle] = useState([]);
@@ -51,12 +50,22 @@ const CharacterSingle = () => {
           <h3 className="">
             Eye Color: {single.eye_color && single.eye_color.toUpperCase()}
           </h3>
-          <img src={iconStar.default} alt="Jedi Icon" />
           <Link to="/">
-            <button class="button-50" role="button">
+            <button className="button-50" role="button">
               Back
             </button>
           </Link>
+          <br />
+          <br />
+          <i style={{ fontSize: "50px" }} className="fa-solid fa-jedi"></i>
+          <i
+            style={{ fontSize: "50px" }}
+            className="fa-brands fa-jedi-order"
+          ></i>
+          <i
+            style={{ fontSize: "50px" }}
+            className="fa-brands fa-galactic-republic"
+          ></i>
         </span>
       </div>
     </div>
