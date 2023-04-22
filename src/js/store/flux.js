@@ -16,18 +16,14 @@ const getState = ({ getStore, getActions, setStore }) => {
           );
           setStore({ characters: updatedCharacter });
           return;
-
         } else {
-
           const newCharacter = [
             ...store.characters,
             { uid, name, favorite: true },
           ];
-
           setStore({ characters: newCharacter });
         }
       },
-      
       removeFromFavorites: (uid, name) => {
         const store = getStore();
         const updatedCharacter = store.characters.filter(

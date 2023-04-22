@@ -45,6 +45,10 @@
   justify-content: center;
   align-items: center;
 }
+.card-text p {
+  margin: 0;
+}
+
 .card-favIcon {
   position: absolute;
   top: -5px;

@@ -8,7 +8,7 @@ import { Home } from "./views/home";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import CharactersSingle from "./views/charactersSingle";
-import SpeciesSingle from "./views/speciesSingle";
+import VehicleSingle from "./views/vehicleSingle";
 
 //create your first component
 const Layout = () => {
@@ -23,9 +23,8 @@ const Layout = () => {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/char-single/:id" element={<CharactersSingle />} />
-            <Route path="/spec-single/:id" element={<SpeciesSingle />} />
-            {/* <Route path="/favorites" element={<Favorites />} /> */}
+            <Route path="/character/:id" element={<CharactersSingle />} />
+            <Route path="/vehicle/:id" element={<VehicleSingle />} />
             <Route
               path="*"
               element={<h1>Not found... May the Force be with you.</h1>}

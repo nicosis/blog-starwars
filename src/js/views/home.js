@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from "react";
-import '../../styles/home.css'
+import "../../styles/home.css";
 
 import Characters from "./characters";
-import Species from "./species";
+import Vehicles from "./vehicles";
 
 export const Home = () => {
   return (
-    <div >
+    <div>
       <Characters />
-      {/* <Species /> */}
+      <center>
+        <i className="fa-brands fa-galactic-republic fa-icons"></i>
+        <i className="fa-brands fa-old-republic fa-icons"></i>
+        <i className="fa-brands fa-jedi-order fa-icons"></i>
+        <i className="fa-solid fa-jedi fa-icons"></i>
+        <i className="fa-brands fa-jedi-order fa-icons"></i>
+        <i className="fa-brands fa-old-republic fa-icons"></i>
+        <i className="fa-brands fa-galactic-republic fa-icons"></i>
+      </center>
+      <Vehicles />
     </div>
   );
 };

@@ -25,23 +25,30 @@ const Favorites = () => {
           >
             Favorites ({store.characters.length})
           </button>
-          <ul className="dropdown-menu rounded-0">
-            {store.characters.map((itm, ind) => (
-              <li key={ind}>
-                <span className="dropdown-item d-flex justify-content-between">
-                  <Link to={`char-single/${itm.uid}`}>
-                    <span>{itm.name}</span>
-                  </Link>
-                  <span className="">
-                    <i
-                      className="fa-solid fa-delete-left" style={{marginLeft:'5px'}}
-                      onClick={() => handleDelFav(itm.uid, itm.name)}
-                    />
+          {store.characters.length === 0 ? (
+            <ul className="dropdown-menu rounded-0">
+              <li className="dropdown-item">Empty</li>
+            </ul>
+          ) : (
+            <ul className="dropdown-menu rounded-0">
+              {store.characters.map((itm, ind) => (
+                <li key={ind}>
+                  <span className="dropdown-item d-flex justify-content-between">
+                    <Link to={`character/${itm.uid}`}>
+                      <span>{itm.name}</span>
+                    </Link>
+                    <span className="">
+                      <i
+                        className="fa-solid fa-delete-left"
+                        style={{ marginLeft: "5px" }}
+                        onClick={() => handleDelFav(itm.uid, itm.name)}
+                      />
+                    </span>
                   </span>
-                </span>
-              </li>
-            ))}
-          </ul>
+                </li>
+              ))}
+            </ul>
+          )}
         </li>
       </div>
     </div>

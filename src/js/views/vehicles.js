@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import "../../styles/characters.css";
+import styles from "../../styles/vehicles.modules.css";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
-import { element } from "prop-types";
 
-const urlApiPeople = "https://www.swapi.tech/api/people";
-const imgUrl = "https://starwars-visualguide.com/assets/img/characters/";
+const urlApiVehicle = "https://www.swapi.tech/api/vehicles";
+const imgUrl = "https://starwars-visualguide.com/assets/img/vehicles/";
 
-const Characters = () => {
-  const [people, setPeople] = useState([]);
+const Vehicles = () => {
+  const [vehicle, setVehicle] = useState([]);
   const [totalPages, setTotalPages] = useState([]);
   const [currentPage, setCurrentPage] = useState("?page=1&limit=10");
 
@@ -17,7 +16,8 @@ const Characters = () => {
 
   // Metodo async/await
   const getAllelements = async () => {
-    const response = await fetch(urlApiPeople + currentPage);
+
+    const response = await fetch(urlApiVehicle + currentPage);
     const data = await response.json();
     setTotalPages([...Array(data.total_pages).keys()]);
 
@@ -27,7 +27,7 @@ const Characters = () => {
       return data.result;
     });
     const results = await Promise.all(promises);
-    setPeople(results);
+    setVehicle(results);
   };
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const Characters = () => {
     <div className="character-container">
       <div className="button-container">
         <span className="button-50" style={{ cursor: "default" }}>
-          CHARACTERS
+          VEHICLES
         </span>
         {totalPages.map((_, ind) => (
           <button
@@ -61,16 +61,16 @@ const Characters = () => {
         ))}
       </div>
       <div className="cards-view">
-        {people.map((itm, ind) => (
+        {vehicle.map((itm, ind) => (
           <div key={ind} className="card-container">
-            <Link to={`character/${itm.uid}`} className="card-link">
+            <Link to={`vehicle/${itm.uid}`} className="card-link">
               <div className="card-container-img">
                 <img
                   className="card-imagen"
                   src={`${imgUrl}${itm.uid}.jpg`}
-                  alt="Character Image"
+                  alt="Vehicle Image"
                 />
-                <span className="card-favIcon">
+                {/* <span className="card-favIcon">
                   {store.characters.some(
                     (char) => char.uid === itm.uid && char.favorite
                   ) ? (
@@ -82,10 +82,13 @@ const Characters = () => {
                       onClick={(e) => handleAddFav(e, itm.uid, itm.name)}
                     />
                   )}
-                </span>
+                </span> */}
               </div>
-              <span className="card-text">
-                <p>{itm.properties.name}</p>
+              <span className={styles['vehicles-card-text']}>
+                <p style={{ margin: "0" }}>Name: {itm.properties.name}</p>
+                <p style={{ margin: "0" }}>
+                  Passengers: {itm.properties.passengers}
+                </p>
               </span>
             </Link>
           </div>
@@ -95,4 +98,4 @@ const Characters = () => {
   );
 };
 
-export default Characters;
+export default Vehicles;

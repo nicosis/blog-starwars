@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import "../../styles/singleCharacter.css";
-const apiUrl = "https://www.swapi.tech/api/people/";
-const imgUrl = "https://starwars-visualguide.com/assets/img/characters/";
+import "../../styles/singleVehicle.css";
+const urlApiVehicles = "https://www.swapi.tech/api/vehicles/";
+const imgUrl = "https://starwars-visualguide.com/assets/img/vehicles/";
 
-const CharacterSingle = () => {
+const VehicleSingle = () => {
   const [single, setSingle] = useState([]);
   const params = useParams();
 
@@ -13,7 +13,7 @@ const CharacterSingle = () => {
       method: "GET",
       redirect: "follow",
     };
-    fetch(apiUrl + params.id, requestOptions)
+    fetch(urlApiVehicles + params.id, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         setSingle(data.result.properties);
@@ -27,29 +27,27 @@ const CharacterSingle = () => {
 
   return (
     <div className="single-container">
-      <div className="single-card">
-        <img
-          src={imgUrl + params.id + ".jpg"}
-          className="single-card-img"
-          alt="Character Image"
-        />
-        <span className="single-card-info">
+      <div className="vehicle-single-card">
+        <div className="vehicle-single-card-img">
+          <img className="vehicle-single-card-img-img" src={imgUrl + params.id + ".jpg"} alt="Character Image" />
+        </div>
+        <div className="vehicle-single-card-info">
           <h1 className="">
             <strong>{single.name}</strong>
           </h1>
           <hr />
-          <h3 className="">Birth Year: {single.birth_year}</h3>
-          <h3 className="">Height: {single.height} cm</h3>
-          <h3 className="">Mass: {single.mass} kg</h3>
-          <h3 className="single-card-info-cap">Gender: {single.gender}</h3>
+          <h3 className="">xx: {single.birth_year}</h3>
+          <h3 className="">xx: {single.height} cm</h3>
+          <h3 className="">xx: {single.mass} kg</h3>
+          <h3 className="single-card-info-cap">xx: {single.gender}</h3>
           <h3 className="single-card-info-cap">
-            Hair Color: {single.hair_color}
+            xx: {single.hair_color}
           </h3>
           <h3 className="single-card-info-cap">
-            Skin Color: {single.skin_color}
+            xx: {single.skin_color}
           </h3>
           <h3 className="single-card-info-cap">
-            Eye Color: {single.eye_color}
+            xx: {single.eye_color}
           </h3>
           <hr />
           <Link to="/">
@@ -57,10 +55,10 @@ const CharacterSingle = () => {
               Back
             </button>
           </Link>
-        </span>
+        </div>
       </div>
     </div>
   );
 };
 
-export default CharacterSingle;
+export default VehicleSingle;

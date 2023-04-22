@@ -1,0 +1,4 @@
+.vehicles-card-text{
+    display: flex;
+    flex-direction: column;
+}
