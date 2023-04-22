@@ -10,7 +10,7 @@ const Favorites = () => {
   console.log('char nav:', characters1); */
 
   const handleDelFav = (uid, name) => {
-    actions.removeCharacter(uid, name);
+    actions.removeFromFavorites(uid, name);
   };
 
   return (
@@ -34,7 +34,7 @@ const Favorites = () => {
                   </Link>
                   <span className="">
                     <i
-                      className="fa-solid fa-delete-left"
+                      className="fa-solid fa-delete-left" style={{marginLeft:'5px'}}
                       onClick={() => handleDelFav(itm.uid, itm.name)}
                     />
                   </span>

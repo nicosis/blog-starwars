@@ -36,7 +36,7 @@ const Characters = () => {
 
   const handleAddFav = (e, uid, name) => {
     e.preventDefault();
-    actions.addCharacter(uid, name);
+    actions.addToFavorites(uid, name);
   };
 console.log('en store:',store.characters[0]);
   return (
