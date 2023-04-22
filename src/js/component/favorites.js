@@ -10,7 +10,6 @@ const Favorites = () => {
   console.log('char nav:', characters1); */
 
   const handleDelFav = (uid, name) => {
-    // console.log('clic delete', uid);
     actions.removeCharacter(uid, name);
   };
 

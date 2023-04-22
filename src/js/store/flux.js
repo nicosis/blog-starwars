@@ -5,13 +5,27 @@ const getState = ({ getStore, getActions, setStore }) => {
     },
     actions: {
       addCharacter: (uid, name) => {
-        // recuperar la amacen global
         const store = getStore();
-        // crear nuevo caracter y añadirlo a la propiedad creada arriba
-        const newCharacter = [...store.characters, { uid, name }]; //consola js
-        console.log("add character:", newCharacter);
-        //actualiza la variable del store
-        setStore({ characters: newCharacter }); //jsx
+        const characterExists = store.characters.some(
+          (character) => character.uid === uid
+        );
+
+        if (characterExists) {
+          console.log("El personaje ya está en la lista de favoritos");
+          const updatedCharacter = store.characters.filter(
+            (itm) => itm.uid !== uid
+          );
+          setStore({ characters: updatedCharacter });
+          return;
+        } else {
+          const newCharacter = [
+            ...store.characters,
+            { uid, name, favorite: true },
+          ];
+          console.log("add character:", newCharacter);
+          //actualiza la variable del store
+          setStore({ characters: newCharacter });
+        }
       },
       removeCharacter(uid, name) {
         const store = getStore();
@@ -20,8 +34,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         );
         setStore({ characters: updatedCharacter });
       },
-      // addRemoveFavorites() {
-      //   hacer condicional integrango add y remove
+      // addRemoveFavorites(uid, name) {
+      // const store=getState()
+      // if ()
       // },
     },
   };

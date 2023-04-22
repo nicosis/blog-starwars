@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "../../styles/characters.css";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
-
 const urlApiPeople = "https://www.swapi.tech/api/people";
 const imgUrl = "https://starwars-visualguide.com/assets/img/characters/";
 
@@ -12,6 +11,7 @@ const Characters = () => {
   const [people, setPeople] = useState([]);
   const [totalPages, setTotalPages] = useState([]);
   const [currentPage, setCurrentPage] = useState("?page=1&limit=10");
+
   const { store, actions } = useContext(Context);
 
   const getAllelements = async () => {
@@ -38,7 +38,7 @@ const Characters = () => {
     e.preventDefault();
     actions.addCharacter(uid, name);
   };
-
+console.log('en store:',store.characters[0]);
   return (
     <div className="character-container">
       <div className="button-container">
@@ -68,9 +68,12 @@ const Characters = () => {
                   alt="Char Img"
                 />
                 <span className="card-favIcon">
-                  <MdFavoriteBorder
-                    onClick={(e) => handleAddFav(e, itm.uid, itm.name)}
-                  />
+                  {store.characters.some((char)=> char.uid === itm.uid && char.favorite)?(
+                    <MdFavorite onClick={(e) => handleAddFav(e, itm.uid, itm.name)} />
+                  ):(
+                    <MdFavoriteBorder onClick={(e) => handleAddFav(e, itm.uid, itm.name)} />
+                  )}
+
                 </span>
               </div>
               <span className="card-text">
