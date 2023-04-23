@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import styles from "../../styles/vehicles.css";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
+import logo from '../../img/star_wars_logo.png'
 
 const urlApiVehicle = "https://www.swapi.tech/api/vehicles";
 const imgUrl = "https://starwars-visualguide.com/assets/img/vehicles/";
@@ -68,6 +69,7 @@ const Vehicles = () => {
                   className="vehicles-card-img"
                   src={`${imgUrl}${itm.uid}.jpg`}
                   alt="Vehicle Image"
+                  onError={(e)=>e.target.src=logo}
                 />
                 <span className="card-favIcon">
                   {store.characters.some(

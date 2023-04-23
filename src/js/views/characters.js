@@ -3,7 +3,6 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/characters.css";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
-import { element } from "prop-types";
 
 const urlApiPeople = "https://www.swapi.tech/api/people";
 const imgUrl = "https://starwars-visualguide.com/assets/img/characters/";
