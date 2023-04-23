@@ -8,7 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         const characterExists = store.characters.some(
           (character) => character.uid === uid
-        );
+          );
+          console.log('funky store',store);
 
         if (characterExists) {
           const updatedCharacter = store.characters.filter(

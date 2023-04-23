@@ -62,9 +62,9 @@ const Characters = () => {
       </div>
       <div className="cards-view">
         {people.map((itm, ind) => (
-          <div key={ind} className="card-container">
+          <div key={ind} className="characters-card-container">
             <Link to={`character/${itm.uid}`} className="card-link">
-              <div className="card-container-img">
+              <div className="characters-card-container-img">
                 <img
                   className="card-imagen"
                   src={`${imgUrl}${itm.uid}.jpg`}
@@ -75,18 +75,18 @@ const Characters = () => {
                     (char) => char.uid === itm.uid && char.favorite
                   ) ? (
                     <MdFavorite
-                      onClick={(e) => handleAddFav(e, itm.uid, itm.name)}
+                      onClick={(e) => handleAddFav(e, itm.uid, itm.properties.name)}
                     />
                   ) : (
                     <MdFavoriteBorder
-                      onClick={(e) => handleAddFav(e, itm.uid, itm.name)}
+                      onClick={(e) => handleAddFav(e, itm.uid, itm.properties.name)}
                     />
                   )}
                 </span>
               </div>
-              <span className="card-text">
+              <div className="characters-card-container-text">
                 <p>{itm.properties.name}</p>
-              </span>
+              </div>
             </Link>
           </div>
         ))}

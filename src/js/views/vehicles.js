@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import styles from "../../styles/vehicles.modules.css";
+import styles from "../../styles/vehicles.css";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
 const urlApiVehicle = "https://www.swapi.tech/api/vehicles";
@@ -16,7 +16,6 @@ const Vehicles = () => {
 
   // Metodo async/await
   const getAllelements = async () => {
-
     const response = await fetch(urlApiVehicle + currentPage);
     const data = await response.json();
     setTotalPages([...Array(data.total_pages).keys()]);
@@ -43,7 +42,7 @@ const Vehicles = () => {
     actions.addToFavorites(uid, name);
   };
   return (
-    <div className="character-container">
+    <div className="vehicles-container">
       <div className="button-container">
         <span className="button-50" style={{ cursor: "default" }}>
           VEHICLES
@@ -60,35 +59,32 @@ const Vehicles = () => {
           </button>
         ))}
       </div>
-      <div className="cards-view">
+      <div className="vehicles-cards-view">
         {vehicle.map((itm, ind) => (
-          <div key={ind} className="card-container">
+          <div key={ind} className="vehicles-card-container">
             <Link to={`vehicle/${itm.uid}`} className="card-link">
-              <div className="card-container-img">
+              <div className="vehicles-card-container-img">
                 <img
-                  className="card-imagen"
+                  className="vehicles-card-img"
                   src={`${imgUrl}${itm.uid}.jpg`}
                   alt="Vehicle Image"
                 />
-                {/* <span className="card-favIcon">
+                <span className="card-favIcon">
                   {store.characters.some(
                     (char) => char.uid === itm.uid && char.favorite
                   ) ? (
                     <MdFavorite
-                      onClick={(e) => handleAddFav(e, itm.uid, itm.name)}
+                      onClick={(e) => handleAddFav(e, itm.uid, itm.propereties.name)}
                     />
                   ) : (
                     <MdFavoriteBorder
-                      onClick={(e) => handleAddFav(e, itm.uid, itm.name)}
+                      onClick={(e) => handleAddFav(e, itm.uid, itm.properties.name)}
                     />
                   )}
-                </span> */}
+                </span>
               </div>
-              <span className={styles['vehicles-card-text']}>
-                <p style={{ margin: "0" }}>Name: {itm.properties.name}</p>
-                <p style={{ margin: "0" }}>
-                  Passengers: {itm.properties.passengers}
-                </p>
+              <span className="vehicles-card-text">
+                <p>{itm.properties.name}</p>
               </span>
             </Link>
           </div>
