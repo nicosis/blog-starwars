@@ -71,7 +71,7 @@ const Characters = () => {
                 />
                 <span className="card-favIcon">
                   {store.characters.some(
-                    (char) => char.uid === itm.uid && char.favorite
+                    (char) => char.uid === itm.uid && char.name === itm.properties.name && char.favorite
                   ) ? (
                     <MdFavorite
                       onClick={(e) => handleAddFav(e, itm.uid, itm.properties.name)}

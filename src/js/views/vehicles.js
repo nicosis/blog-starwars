@@ -42,6 +42,7 @@ const Vehicles = () => {
     e.preventDefault();
     actions.addToFavorites(uid, name);
   };
+  
   return (
     <div className="vehicles-container">
       <div className="button-container">
@@ -73,10 +74,10 @@ const Vehicles = () => {
                 />
                 <span className="card-favIcon">
                   {store.characters.some(
-                    (char) => char.uid === itm.uid && char.favorite
+                    (char) => char.uid === itm.uid && char.name === itm.properties.name && char.favorite
                   ) ? (
                     <MdFavorite
-                      onClick={(e) => handleAddFav(e, itm.uid, itm.propereties.name)}
+                      onClick={(e) => handleAddFav(e, itm.uid, itm.properties.name)}
                     />
                   ) : (
                     <MdFavoriteBorder

@@ -27,7 +27,7 @@ const Favorites = () => {
           </button>
           {store.characters.length === 0 ? (
             <ul className="dropdown-menu rounded-0">
-              <li className="dropdown-item">Empty</li>
+              <li className="dropdown-item">Empty List</li>
             </ul>
           ) : (
             <ul className="dropdown-menu rounded-0">
