@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import styles from "../../styles/vehicles.css";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
-import imgNotAvaible from '../../img/star-wars-not.png'
+import imgNotAvaible from "../../img/star-wars-not.png";
 
 const urlApiVehicle = "https://www.swapi.tech/api/vehicles";
 const imgUrl = "https://starwars-visualguide.com/assets/img/vehicles/";
@@ -42,7 +42,7 @@ const Vehicles = () => {
     e.preventDefault();
     actions.addToFavorites(uid, name);
   };
-  
+
   return (
     <div className="vehicles-container">
       <div className="button-container">
@@ -69,19 +69,25 @@ const Vehicles = () => {
                 <img
                   className="vehicles-card-img"
                   src={`${imgUrl}${itm.uid}.jpg`}
-                  onError={(e)=>e.target.src=imgNotAvaible}
+                  onError={(e) => (e.target.src = imgNotAvaible)}
                   alt="Vehicle Image"
                 />
                 <span className="card-favIcon">
                   {store.characters.some(
-                    (char) => char.uid === itm.uid && char.name === itm.properties.name && char.favorite
+                    (character) =>
+                      character.uid === itm.uid &&
+                      character.name === itm.properties.name
                   ) ? (
                     <MdFavorite
-                      onClick={(e) => handleAddFav(e, itm.uid, itm.properties.name)}
+                      onClick={(e) =>
+                        handleAddFav(e, itm.uid, itm.properties.name)
+                      }
                     />
                   ) : (
                     <MdFavoriteBorder
-                      onClick={(e) => handleAddFav(e, itm.uid, itm.properties.name)}
+                      onClick={(e) =>
+                        handleAddFav(e, itm.uid, itm.properties.name)
+                      }
                     />
                   )}
                 </span>

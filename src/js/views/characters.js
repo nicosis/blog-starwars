@@ -71,10 +71,9 @@ const Characters = () => {
                 />
                 <span className="card-favIcon">
                   {store.characters.some(
-                    (char) =>
-                      char.uid === itm.uid &&
-                      char.name === itm.properties.name &&
-                      char.favorite
+                    (character) =>
+                      character.uid === itm.uid &&
+                      character.name === itm.properties.name
                   ) ? (
                     <MdFavorite
                       onClick={(e) =>
