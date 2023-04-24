@@ -19,12 +19,13 @@ const Characters = () => {
     const response = await fetch(urlApiPeople + currentPage);
     const data = await response.json();
     setTotalPages([...Array(data.total_pages).keys()]);
-
+// preguntar
     const promises = data.results.map(async (element) => {
       const response = await fetch(element.url);
       const data = await response.json();
       return data.result;
     });
+    
     const results = await Promise.all(promises);
     setPeople(results);
   };

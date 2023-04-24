@@ -5,8 +5,8 @@ const urlApi = "https://www.swapi.tech/api/people/";
 const imgUrl = "https://starwars-visualguide.com/assets/img/characters/";
 
 const CharacterDetail = () => {
-  const [character, setCharacter] = useState([]);
-  const [homeWorld, setHomeWorld] = useState("");
+  const [character, setCharacter] = useState({});
+  const [homeWorld, setHomeWorld] = useState({});
   const [urlApiHomeWorld, setUrlApiHomeWorld] = useState("");
   const params = useParams();
 
@@ -15,26 +15,25 @@ const CharacterDetail = () => {
     const data = await response.json();
     setCharacter(data.result.properties);
     setUrlApiHomeWorld(data.result.properties.homeworld);
-    getPlanet();
+
+    if (data.result.properties.homeworld) {
+      const results = await getHomeWorld(data.result.properties.homeworld);
+      setHomeWorld(results);
+    }
+  };
+  
+  const getHomeWorld = async (url) => {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.result.properties;
   };
 
-  const getPlanet = async () => {
-    const response = await fetch(urlApiHomeWorld);
-    const data = await response.json();
-    setHomeWorld(data.result.properties);
-  };
   console.log("planet url:", urlApiHomeWorld);
   console.log("planet info:", homeWorld);
 
   useEffect(() => {
     getAllelements();
   }, []);
-
-  useEffect(() => {
-    if (urlApiHomeWorld !== "") {
-      getPlanet();
-    }
-  }, [urlApiHomeWorld]);
 
   return (
     <div className="single-container">
@@ -62,9 +61,7 @@ const CharacterDetail = () => {
           <h3 className="single-card-info-cap">
             Eye Color: {character.eye_color}
           </h3>
-          <h3 className="single-card-info-cap">
-            Home World: {homeWorld.name}
-          </h3>
+          <h3 className="single-card-info-cap">Home World: {homeWorld.name}</h3>
           <hr />
           <Link to="/">
             <button className="button-50" role="button">
