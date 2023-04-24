@@ -1,0 +1,37 @@
+.vehicles-single-container {
+  margin: 10px auto;
+  max-width: 1000px;
+}
+
+.vehicle-single-card {
+  display: flex;
+  background-color: black;
+}
+
+.vehicle-single-card-img {
+  flex: 7;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: auto 0;
+}
+
+.vehicle-single-card-img-img {
+  width: 100%;
+
+}
+
+.vehicle-single-card-info {
+  flex: 5;
+  margin: 20px;
+}
+
+.single-card-info-cap {
+  text-transform: capitalize;
+}
+
+hr:not([size]) {
+  height: 3px;
+  margin: 10px 0;
+  opacity: 100%;
+}
